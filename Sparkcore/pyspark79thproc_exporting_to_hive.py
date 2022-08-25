@@ -1,8 +1,10 @@
+
+#exporting data to hive
+#this code will run only if hive is present on the system
+
 from pyspark.sql import *
 from pyspark.sql.functions import *
 import sys
-#exporting data to hive
-#this code will run only if hive is present on the system
 spark = SparkSession.builder.master("local[*]").appName("test").getOrCreate()
 #to run code for hive comment above line and uncomment below line
 # spark=SparkSession.builder.master('local[*]').appName('test').enableHiveSupport().getOrCreate()
