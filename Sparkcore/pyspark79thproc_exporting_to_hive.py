@@ -15,3 +15,6 @@ df=spark.read.format('csv').option('header','true').option('inferSchma','true').
 ndf=df.withColumn("New",when(col('city')=='Ashland',"Place Mut Visit").otherwise("not so good"))
 ndf.show(truncate=False)
 # ndf.write.format('hive').saveAsTable(tab)
+"""Note:"""
+#deployment done by spark-subit --master mastername --deploy-mode mode file args
+# whenever arguments used execute from terminal of pycharm python terminal
