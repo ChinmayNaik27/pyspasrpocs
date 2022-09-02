@@ -9,6 +9,7 @@ odata="E:\\outputofxml\intoxml"
 odata1="E:\\outputofxml\intocsv"
 df=spark.read.format('xml').option('rowTag','book').load(data)
 res=df.withColumn("processsing-time",current_timestamp()).withColumnRenamed('_id','id').where(col('price')>=30)
+df.show()
 res.write.format('xml').option('rootTag','main').option('rowTag','book').save(odata)
 print("success!!")
 #storing into csv
