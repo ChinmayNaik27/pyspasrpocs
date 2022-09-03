@@ -18,3 +18,19 @@ def read_json_file(df):
             cols.append(col_name)
     df.select(cols)
     return df
+def flatten(df):
+    read_json_flag=True
+    while read_json_flag:
+        df=read_json_file(df)
+        read_json_flag=False
+        for col_name in df.schema.name:
+            if isinstance(df[col_name].dataType(),ArrayType):
+                read_json_flag=True
+            elif isinstance(df[col_name].dataType(),StructType):
+                read_json_flag=True
+#creating df
+data="C:\\bigdata\\DATASETS\\books.xml"
+odata="E:\\outputofxml\complexxml-output-to-csv"
+df=spark.read.format('xml').option('rowType','books').load(data)
+ndf=flatten(df)
+print(ndf)
