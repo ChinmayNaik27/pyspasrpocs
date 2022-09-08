@@ -29,4 +29,4 @@ df = spark.read.format(SF_VAR).options(**sfOptions).option('dbtable','banktab').
 df.show()
 res=df.withColumn("timestamp",current_timestamp())
 res.show()
-res.write.mode('overwrite').format(SF_VAR).option('dbtable','practice1').option(**sfOptions).save()
+res.write.mode('overwrite').format(SF_VAR).option('dbtable','practice1').options(**sfOptions).save()
