@@ -8,6 +8,9 @@ sc = spark.sparkContext
 sc._jsc.hadoopConfiguration().set("fs.s3n.awsAccessKeyId", "AKIAY4RWHOEUSR2YQD6W")
 sc._jsc.hadoopConfiguration().set("fs.s3n.awsSecretAccessKey", "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")
 
+# These are optional these are only used when we have to read s3 data.. otherwise there is no need for this
+# sc._jsc.hadoopConfiguration().set("fs.s3n.awsAccessKeyId", "AKIAY4RWHOEUSR2YQD6W")
+# sc._jsc.hadoopConfiguration().set("fs.s3n.awsSecretAccessKey", "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")
 sfOptions = {
   "sfURL" : "st20210.ap-southeast-1.snowflakecomputing.com",
   "sfUser" : "CHINMAYNAIK27",
