@@ -21,5 +21,5 @@ sfOptions = {
 }
 
 
-df=spark.read.format("net.snowflake.spark.snowflake").option("dbtable","banktab").option(**sfOptions).load()
+df=spark.read.format("net.snowflake.spark.snowflake").option("dbtable","banktab").options(**sfOptions).load()
 df.show()
