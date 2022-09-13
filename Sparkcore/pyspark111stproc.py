@@ -1,4 +1,4 @@
-#writing sparkdata into rds
+#reading data from spark streaming and writing spark streaming data into rds
 from pyspark.sql import *
 from pyspark.sql.functions import *
 
