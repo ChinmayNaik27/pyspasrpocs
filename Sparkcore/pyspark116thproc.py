@@ -48,7 +48,7 @@ df=spark.readStream.format("json").option("multiLine","true",).option("maxFilesP
 
 ndf=flat1(df)
 #store data in db
-ndf.writeStream(for_each_to_store).start().awaitTermination()
+ndf.writeStream.foreachBatch(for_each_to_store).start().awaitTermination()
 """
 #to see output in console
 ndf.writeStream.format("console").start().outputMode("append").awaitTermination()
