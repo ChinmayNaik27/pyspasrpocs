@@ -29,5 +29,6 @@ res1=df.withColumn("to_whom",regexp_extract(col("Response"),ex1,1))\
     .withColumn("Response",regexp_replace(col("Response"),ex1,""))\
     .withColumn("Response",regexp_replace(col("Response"),ex2,""))\
     .withColumn("Response",regexp_replace(col("Response"),ex3,""))\
-    .withColumn("Response",regexp_replace(col("Response"),ex4,""))
+    .withColumn("Response",regexp_replace(col("Response"),ex4,""))\
+    .withColumn("Username",regexp_replace(col("Username"),ex4,""))
 res1.show(truncate=False)
