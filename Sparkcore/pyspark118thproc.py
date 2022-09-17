@@ -32,5 +32,5 @@ res1=df.withColumn("to_whom",regexp_extract(col("Response"),ex1,1))\
     .withColumn("Response",regexp_replace(col("Response"),ex4,""))\
     .withColumn("Username",regexp_replace(col("Username"),ex4,""))
 res1.show(truncate=False)
-op=res1.limit(300)    # to store only first 300 records using data frame api
-op.write.format("csv").mode("append").save(f"E:\\spark-output\\{dt.date.today()}")
+op=res1.limit(300)                        #to fetch only first 300 records of file
+op.write.format("csv").mode("append").option("header","true").save(f"E:\spark-output\\{dt.date.today()}")
