@@ -1,4 +1,4 @@
-#data cleaing , to filter out emojies/collection of special characters links or websites from given data file
+#data cleaing (clean data), to filter out emojies/collection of special characters links or websites from given data file
 # this is filtering data from twitter
 from pyspark.sql import *
 from pyspark.sql.functions import *
