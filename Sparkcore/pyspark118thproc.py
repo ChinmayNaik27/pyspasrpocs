@@ -2,7 +2,7 @@
 # this is filtering data from twitter
 from pyspark.sql import *
 from pyspark.sql.functions import *
-
+import datetime as dt
 spark = SparkSession.builder.master("local[*]").appName("test").getOrCreate()
 sc = spark.sparkContext
 df=spark.read.format("csv").option("inferSchema","true").load("C:\\Users\\chinm\\OneDrive\\Desktop\\demo.csv")\
@@ -32,3 +32,5 @@ res1=df.withColumn("to_whom",regexp_extract(col("Response"),ex1,1))\
     .withColumn("Response",regexp_replace(col("Response"),ex4,""))\
     .withColumn("Username",regexp_replace(col("Username"),ex4,""))
 res1.show(truncate=False)
+op=res1.limit(300)    # to store only first 300 records using data frame api
+op.write.format("csv").mode("append").save(f"E:\\spark-output\\{dt.date.today()}")
