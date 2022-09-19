@@ -13,7 +13,7 @@ newsch=sch.add(StructField("wrong_records",StringType(),True))
 df=spark.read.format("csv").schema(newsch).option("header","true").option("inferSchema","true").option("mode","PERMISSIVE")\
     .option("columnNameOfCorruptRecord","wrong_records").load(data)
 df.show()
-#to filter out records we nedd to cache records
+#to filter out records we need to cache records
 df.cache()
 df.count()
 #TO filter out wrong_records records
