@@ -21,6 +21,6 @@ ndf=df.select(col("wrong_records")).filter(col("wrong_records").isNotNull())
 #display records
 ndf.show()
 #dropping the wrong records
-ndf1=df.select(col("wrong_records")).filter(col("wrong_records").isNull()).drop(col("wrong"))
+ndf1=df.filter(col("wrong_records").isNull()).drop(col("wrong_records"))
 #displaying records
 ndf1.show()
