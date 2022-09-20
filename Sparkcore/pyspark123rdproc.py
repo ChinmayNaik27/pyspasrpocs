@@ -11,6 +11,7 @@ data="C:/Users/chinm/Downloads/CC_Records.csv"
 #reading data
 df=spark.read.format("csv").option("header","true").option("inferSchema","true").load(data)
 df.show()
+df.printSchema()
 #explaining udf
 myfunc=udf(mask_values)
 #masking values:
