@@ -1,5 +1,6 @@
-#Performing masking operation on a card number masking the values of card number(Addhar/pan)
-#eg :87765492346 expected output is ********2346 for all values in a column and store it in LFS
+"""masking values of a column in dataframe
+Performing masking operation on a card number masking the values of card number(Addhar/pan)
+eg :87765492346 expected output is ********2346 for all values in a column and store it in LFS"""
 from pyspark.sql import *
 from pyspark.sql.functions import *
 
